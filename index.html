@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Tube Bubble</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1 class="highlight" align="right">LIQUID SENSE</h1>
+        <svg x="0px" y="0px" width="595.28px" height="841.89px" viewBox="0 0 595.28 841.89">
+            <defs>
+                <mask id="liquidMask">
+                    <path id="liquidShape" fill="#FFFFFF" d="M213.387,393.976c0,0,1.93,98.508,1.93,232.287c0,113.196,166.577,124.772,166.577,2.573
+                    c0-206.768,0,23.333,0-234.86c0,0-39.915-15.727-86.226,0C256.333,407.333,213.387,393.976,213.387,393.976z"
+                    />
+                    <g id="bubbles">
+                        <circle cx="246.632" cy="776.956" r="16.538" fill="#000000" />
+                        <circle cx="297.569" cy="802.755" r="19.846" fill="#111111" />
+                        <circle cx="288.97" cy="766.372" r="7.277" fill="#7F7F7F" />
+                        <circle cx="262.509" cy="747.85" r="5.954" fill="#888888" />
+                        <circle cx="330.645" cy="769.68" r="14.553" fill="#333333" />
+                        <circle cx="342.552" cy="817.309" r="7.938" fill="#2D2D2D" />
+                        <circle cx="332.629" cy="796.802" r="3.308" />
+                        <circle cx="370.335" cy="780.264" r="11.908" />
+                        <circle cx="359.751" cy="747.188" r="6.615" />
+                        <circle cx="306.83" cy="756.449" r="7.938" />
+                        <circle cx="260.524" cy="813.339" r="11.907" />
+                        <circle cx="359.09" cy="806.063" r="8.6" />
+                        <circle cx="273.093" cy="780.925" r="5.954" />
+                    </g>
+                </mask>
+            </defs>
+            <g id="tube">
+                <path id="glass_outline" fill="none" stroke="#333333" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"
+                    d="
+       M176.597,112.351h24.721c0,0,2.206,361.765,2.206,514.707c0,129.412,190.439,142.647,190.439,2.941c0-127.94,0-517.648,0-517.648
+       h24.122" />
+                <g id="maskedLiquid" mask="url(#liquidMask)">
+                    <path id="liquid" fill="#EE2F65" d="M213.387,393.976c0,0,1.93,98.508,1.93,232.287c0,113.196,166.577,124.772,166.577,2.573
+       c0-206.768,0,23.333,0-234.86c0,0-39.915-15.727-86.226,0C256.333,407.333,213.387,393.976,213.387,393.976z" />
+                </g>
+            </g>
+
+        </svg>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+    <script>
+        var tl = new TimelineMax();
+        tl.staggerTo('#bubbles circle', 3, {
+            attr: {
+                cy: 200
+            },
+            ease: Power2.easeIn,
+            repeat: -1
+        }, 0.6)
+    </script>
+</body>
+
+</html>
