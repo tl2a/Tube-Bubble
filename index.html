@@ -19,6 +19,8 @@
                 <mask id="liquidMask">
                     <path id="liquidShape" fill="#FFFFFF" d="M213.387,393.976c0,0,1.93,98.508,1.93,232.287c0,113.196,166.577,124.772,166.577,2.573
                     c0-206.768,0,23.333,0-234.86c0,0-39.915-15.727-86.226,0C256.333,407.333,213.387,393.976,213.387,393.976z"
+                        pathdata:id="M213.387,393.976c0,0,1.93,98.508,1.93,232.287c0,113.196,166.577,124.772,166.577,2.573
+                        c0-206.768,0,23.333,0-234.86c0,0-42.669,22.245-86.226,0C235.954,363.48,213.387,393.976,213.387,393.976z"
                     />
                     <g id="bubbles">
                         <circle cx="246.632" cy="776.956" r="16.538" fill="#000000" />
@@ -44,7 +46,8 @@
        h24.122" />
                 <g id="maskedLiquid" mask="url(#liquidMask)">
                     <path id="liquid" fill="#EE2F65" d="M213.387,393.976c0,0,1.93,98.508,1.93,232.287c0,113.196,166.577,124.772,166.577,2.573
-       c0-206.768,0,23.333,0-234.86c0,0-39.915-15.727-86.226,0C256.333,407.333,213.387,393.976,213.387,393.976z" />
+       c0-206.768,0,23.333,0-234.86c0,0-39.915-15.727-86.226,0C256.333,407.333,213.387,393.976,213.387,393.976z" pathdata:id="M213.387,393.976c0,0,1.93,98.508,1.93,232.287c0,113.196,166.577,124.772,166.577,2.573
+       c0-206.768,0,23.333,0-234.86c0,0-42.669,22.245-86.226,0C235.954,363.48,213.387,393.976,213.387,393.976z" />
                 </g>
             </g>
 
@@ -52,6 +55,7 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
     <script>
         var tl = new TimelineMax();
         tl.staggerTo('#bubbles circle', 3, {
@@ -60,7 +64,26 @@
             },
             ease: Power2.easeIn,
             repeat: -1
-        }, 0.6)
+        }, 0.6);
+
+        var shape = document.querySelector('#liquid'),
+            mask = document.querySelector('#liquidShape');
+        var morpE = anime({
+            targets: shape,
+            d: shape.getAttribute('pathdata:id'),
+            direction: 'alternate',
+            easing: 'easeInOutSine',
+            duration: 1000,
+            loop: true
+        });
+        var morpM = anime({
+            targets: mask,
+            d: mask.getAttribute('pathdata:id'),
+            direction: 'alternate',
+            easing: 'easeInOutSine',
+            duration: 1000,
+            loop: true
+        });
     </script>
 </body>
 
